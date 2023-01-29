@@ -1,0 +1,130 @@
+{
+   "$schema":"https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+   "blocks":[
+      {
+         "alignment":"left",
+         "segments":[
+            {
+               "foreground":"#0ca0b8",
+               "foreground_templates":[
+                  "{{ if gt .Code 0 }}#ff0000{{ end }}"
+               ],
+               "properties":{
+                  "style":"full"
+               },
+               "style":"plain",
+               "template":" {{ if .RootDir }}\uf32a{{ else if eq .Path \"~\"}}\uf015{{ else }}\uf07c  <#0ca0b8>{{ .Path }}{{ end }} ",
+               "type":"path"
+            },
+            {
+               "foreground":"#f1502f",
+               "properties":{
+                  "fetch_status":true
+               },
+               "style":"plain",
+               "template":"on {{ .HEAD }} ",
+               "type":"git"
+            },
+            {
+               "foreground":"#00ff86",
+               "style":"plain",
+               "template":"{{ if not .Error }}{{ if and .Version }}v{{.Version}}{{ end }}{{ end }} ",
+               "type":"project"
+            }
+         ],
+         "type":"prompt"
+      },
+      {
+         "alignment":"right",
+         "segments":[
+            {
+               "foreground":"#777bb3",
+               "style":"plain",
+               "template":" \ue73d ",
+               "type":"php"
+            },
+            {
+               "foreground":"#6ca35e",
+               "style":"plain",
+               "template":" \ue718 ",
+               "type":"node"
+            },
+            {
+               "foreground":"#ffde57",
+               "style":"plain",
+               "template":" \ue235 ",
+               "type":"python"
+            },
+            {
+               "type":"text",
+               "style":"plain",
+               "foreground":"#044f88",
+               "template":"{{ if or (glob \"*.cpp\") (glob \"*.h\") }} \ue61d {{end}}"
+            },
+            {
+               "type":"text",
+               "style":"plain",
+               "foreground":"#9b4993",
+               "template":"{{ if glob \"*.cs\" }} \ue648 {{end}}"
+            },
+            {
+               "foreground":"#f89820",
+               "style":"plain",
+               "template":" \ue738 ",
+               "type":"java"
+            },
+            {
+               "foreground":"#cc3534",
+               "style":"plain",
+               "template":" \ue71e ",
+               "type":"npm"
+            },
+            {
+               "type":"text",
+               "style":"plain",
+               "foreground":"#ffffff",
+               "template":"{{ if glob \"*.json\" }} \ufb25 {{end}}"
+            },
+            {
+               "type":"text",
+               "style":"plain",
+               "foreground":"#0db7ed",
+               "template":"{{ if or (glob \"*.docker*\") (glob \"*Dockerfile*\") }} \uf308 {{end}}"
+            },
+            {
+               "type":"text",
+               "style":"plain",
+               "foreground":"#00758f",
+               "template":"{{ if glob \"*.sql\" }} \ue704 {{end}}"
+            },
+            {
+               "foreground":"#ffffff",
+               "style":"plain",
+               "template":" \uf017 {{ .CurrentDate | date .Format }} ",
+               "type":"time"
+            },
+            {
+               "foreground":"#ffffff",
+               "style":"plain",
+               "template":"| {{ .FormattedMs }} </>",
+               "type":"executiontime"
+            }
+         ],
+         "type":"prompt"
+      },
+      {
+         "alignment":"left",
+         "newline":true,
+         "segments":[
+            {
+               "foreground":"#0ca0b8",
+               "style":"plain",
+               "template":" \u2570\ufb26 ",
+               "type":"text"
+            }
+         ],
+         "type":"prompt"
+      }
+   ],
+   "version":2
+}
